@@ -1,6 +1,15 @@
 import streamlit as st
 import google.generativeai as genai
-import os
+import asyncio
+
+# --- FIX FOR THE RUNTIME ERROR ---
+# This forces an active event loop inside Streamlit's execution thread
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+# ---------------------------------
 
 st.set_page_config(page_title="Cloud Second Brain", layout="wide")
 st.title("🌐 My Cloud-Based Second Brain")
