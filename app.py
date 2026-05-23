@@ -39,7 +39,7 @@ if generate_btn:
             try:
                 # Configure the cloud client
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel("gemini-1.5-flash")
+                model = genai.GenerativeModel("gemini-2.5-flash")
                 
                 # Structure the instruction prompt
                 full_prompt = f"Task: {task_type}\nInput: {user_input}"
